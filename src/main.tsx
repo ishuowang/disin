@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./app";
 import "./styles.css";
+import "./library/styles.css";
 import "./designs/skeuomorphic/tokens.css";
 
 createRoot(document.getElementById("root")!).render(

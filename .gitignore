@@ -1,5 +1,9 @@
 node_modules
 dist
+package-dist
+public/ai.json
+public/components.json
+public/llms.txt
 __pycache__
 *.pyc
 .DS_Store

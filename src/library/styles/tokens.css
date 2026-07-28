@@ -1,0 +1,152 @@
+@layer disin.tokens {
+  :root,
+  [data-theme="disin"],
+  .disin {
+    color-scheme: light;
+    --color-base-100: #eee7d9;
+    --color-base-200: #ded4c3;
+    --color-base-300: #c9bda9;
+    --color-base-content: #211d18;
+    --color-primary: #b95f42;
+    --color-primary-content: #fff8ee;
+    --color-secondary: #708066;
+    --color-secondary-content: #f8fff1;
+    --color-accent: #5f7691;
+    --color-accent-content: #f4f8ff;
+    --color-neutral: #2c2924;
+    --color-neutral-content: #f3ecdf;
+    --color-info: #4f7999;
+    --color-success: #62805b;
+    --color-warning: #b47b35;
+    --color-error: #a84e43;
+    --radius-selector: 0.8rem;
+    --radius-field: 0.7rem;
+    --radius-box: 1.15rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 1;
+    --noise: 1;
+
+    --disin-paper: #eee7d9;
+    --disin-paper-deep: #c9bda9;
+    --disin-paper-light: #fffaf0;
+    --disin-ink: #211d18;
+    --disin-muted: #6f675c;
+    --disin-leather: #2c261f;
+    --disin-leather-deep: #171410;
+    --disin-metal: #d6cdbf;
+    --disin-metal-light: #fffdf6;
+    --disin-metal-dark: #988f80;
+    --disin-amber: #b95f42;
+    --disin-lcd: #c8dd96;
+    --disin-lcd-ink: #344329;
+    --disin-line: rgb(53 45 37 / 20%);
+    --disin-shadow-raised:
+      0 1px 0 rgb(255 255 255 / 75%) inset,
+      0 -1px 0 rgb(44 36 28 / 16%) inset,
+      0 2px 0 #a99e8c,
+      0 7px 14px rgb(48 39 29 / 20%);
+    --disin-shadow-soft:
+      0 1px 0 rgb(255 255 255 / 72%) inset,
+      0 10px 28px rgb(48 39 29 / 14%);
+    --disin-shadow-inset:
+      0 2px 5px rgb(48 39 29 / 28%) inset,
+      0 -1px 0 rgb(255 255 255 / 72%) inset;
+    --disin-focus: 0 0 0 3px rgb(185 95 66 / 24%);
+    --disin-ease: cubic-bezier(.2, .8, .25, 1);
+  }
+}
+
+@layer disin.base {
+  :where([data-theme="disin"], .disin) {
+    color: var(--disin-ink);
+    accent-color: var(--color-primary);
+  }
+
+  :where([data-theme="disin"], .disin) *,
+  :where([data-theme="disin"], .disin) *::before,
+  :where([data-theme="disin"], .disin) *::after {
+    box-sizing: border-box;
+  }
+
+  :where([data-theme="disin"], .disin) :focus-visible {
+    outline: 2px solid transparent;
+    box-shadow: var(--disin-focus);
+  }
+
+  :where([data-theme="disin"], .disin) :disabled,
+  :where([data-theme="disin"], .disin) [aria-disabled="true"],
+  :where([data-theme="disin"], .disin) .btn-disabled {
+    cursor: not-allowed;
+    filter: saturate(.25);
+    opacity: .48;
+  }
+
+  :where([data-theme="disin"], .disin)
+  :is(.btn, .badge, .alert, .progress, .radial-progress, .checkbox, .radio, .range, .toggle, .input, .select, .textarea, .file-input, .tab, .status)
+  {
+    --disin-component: var(--color-neutral);
+    --disin-component-content: var(--color-neutral-content);
+  }
+
+  :where([data-theme="disin"], .disin) :is(.btn-primary, .badge-primary, .alert-primary, .progress-primary, .radial-progress-primary, .checkbox-primary, .radio-primary, .range-primary, .toggle-primary, .input-primary, .select-primary, .textarea-primary, .file-input-primary, .tab-primary, .status-primary) {
+    --disin-component: var(--color-primary);
+    --disin-component-content: var(--color-primary-content);
+  }
+
+  :where([data-theme="disin"], .disin) :is(.btn-secondary, .badge-secondary, .alert-secondary, .progress-secondary, .radial-progress-secondary, .checkbox-secondary, .radio-secondary, .range-secondary, .toggle-secondary, .input-secondary, .select-secondary, .textarea-secondary, .file-input-secondary, .tab-secondary, .status-secondary) {
+    --disin-component: var(--color-secondary);
+    --disin-component-content: var(--color-secondary-content);
+  }
+
+  :where([data-theme="disin"], .disin) :is(.btn-accent, .badge-accent, .alert-accent, .progress-accent, .radial-progress-accent, .checkbox-accent, .radio-accent, .range-accent, .toggle-accent, .input-accent, .select-accent, .textarea-accent, .file-input-accent, .tab-accent, .status-accent) {
+    --disin-component: var(--color-accent);
+    --disin-component-content: var(--color-accent-content);
+  }
+
+  :where([data-theme="disin"], .disin) :is(.btn-info, .badge-info, .alert-info, .progress-info, .radial-progress-info, .checkbox-info, .radio-info, .range-info, .toggle-info, .input-info, .select-info, .textarea-info, .file-input-info, .tab-info, .status-info) {
+    --disin-component: var(--color-info);
+    --disin-component-content: white;
+  }
+
+  :where([data-theme="disin"], .disin) :is(.btn-success, .badge-success, .alert-success, .progress-success, .radial-progress-success, .checkbox-success, .radio-success, .range-success, .toggle-success, .input-success, .select-success, .textarea-success, .file-input-success, .tab-success, .status-success) {
+    --disin-component: var(--color-success);
+    --disin-component-content: white;
+  }
+
+  :where([data-theme="disin"], .disin) :is(.btn-warning, .badge-warning, .alert-warning, .progress-warning, .radial-progress-warning, .checkbox-warning, .radio-warning, .range-warning, .toggle-warning, .input-warning, .select-warning, .textarea-warning, .file-input-warning, .tab-warning, .status-warning) {
+    --disin-component: var(--color-warning);
+    --disin-component-content: white;
+  }
+
+  :where([data-theme="disin"], .disin) :is(.btn-error, .badge-error, .alert-error, .progress-error, .radial-progress-error, .checkbox-error, .radio-error, .range-error, .toggle-error, .input-error, .select-error, .textarea-error, .file-input-error, .tab-error, .status-error) {
+    --disin-component: var(--color-error);
+    --disin-component-content: white;
+  }
+
+  :where([data-theme="disin"], .disin) :is(.btn, .input, .select, .textarea, .file-input).btn-xs,
+  :where([data-theme="disin"], .disin) :is(.input-xs, .select-xs, .textarea-xs, .file-input-xs) {
+    min-height: 1.8rem;
+    padding-inline: .55rem;
+    font-size: .7rem;
+  }
+
+  :where([data-theme="disin"], .disin) :is(.btn-sm, .input-sm, .select-sm, .textarea-sm, .file-input-sm) {
+    min-height: 2.25rem;
+    padding-inline: .75rem;
+    font-size: .78rem;
+  }
+
+  :where([data-theme="disin"], .disin) :is(.btn-lg, .input-lg, .select-lg, .textarea-lg, .file-input-lg) {
+    min-height: 3.4rem;
+    padding-inline: 1.25rem;
+    font-size: 1rem;
+  }
+
+  :where([data-theme="disin"], .disin) :is(.btn-xl, .input-xl, .select-xl, .textarea-xl, .file-input-xl) {
+    min-height: 4rem;
+    padding-inline: 1.5rem;
+    font-size: 1.08rem;
+  }
+}

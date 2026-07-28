@@ -10,6 +10,10 @@
 ## Design archive
 
 - Add every style beneath `src/designs/<style>/`.
+- The installable CSS library lives under `src/library/`; keep component families
+  split by category and preserve DaisyUI-compatible class names.
+- Keep `src/library/components.ts`, the gallery, `llms.txt`, and the Agent Skill
+  aligned whenever component coverage changes.
 - Keep tokens scoped to the style root; do not leak style-specific globals.
 - A style entry should include reusable components, one composed example, and a
   short decision record in `designs/<style>/`.
@@ -21,4 +25,8 @@
 
 - Production is deployed on Vercel at `disin.vercel.app`.
 - Use `pre-disin.vercel.app` for the latest preview deployment.
+- `npm run build` must produce both the Vercel site and the package in
+  `package-dist/`.
+- Run `npm run test:package` before changing the package version or publishing.
+- Public releases use the npm package `disin`.
 - Do not star, watch, or follow GitHub accounts on behalf of the user.

@@ -1,0 +1,92 @@
+# Disin
+
+> Standalone skeuomorphic CSS components with DaisyUI-compatible class names.
+
+Live gallery: https://disin.vercel.app
+Repository: https://github.com/ishuowang/disin
+Package: disin
+Component count: 68
+Reference contract: DaisyUI 5.7.4
+Runtime dependencies: 0
+Tailwind required: no
+
+## Agent installation
+
+Install this repository's portable Agent Skill:
+
+    npx skills add ishuowang/disin --skill disin -y
+
+Install the CSS package:
+
+    npm install disin
+
+Import once in global CSS:
+
+    @import "disin/styles.css";
+
+Selective import:
+
+    @import "disin/tokens.css";
+    @import "disin/components/button.css";
+    @import "disin/components/card.css";
+
+Activate at the application root:
+
+    <html data-theme="disin">
+
+GitHub fallback:
+
+    npm install github:ishuowang/disin
+
+## Contract
+
+- Read `disin/components.json` before composing a large interface.
+- Prefer native semantic elements and states.
+- Use existing component classes instead of recreating gradients or shadows.
+- DaisyUI and Disin share class names. Do not import both full stylesheets unless
+  cascade order and scope are intentional.
+- Semantic modifiers: primary, secondary, accent, neutral, info, success,
+  warning, error.
+- Common sizes: xs, sm, md, lg, xl.
+- The package is CSS-first and framework-independent.
+
+## Components
+
+Actions (6): Button, Dropdown, FAB / Speed Dial, Modal, Swap, Theme Controller.
+
+Data display (19): Accordion, Avatar, Aura, Badge, Card, Carousel, Chat Bubble,
+Collapse, Countdown, Diff, Hover 3D Card, Hover Gallery, Kbd, List, Stat,
+Status, Table, Text Rotate, Timeline.
+
+Navigation (9): Breadcrumbs, Dock, Link, Megamenu, Menu, Navbar, Pagination,
+Steps, Tabs.
+
+Feedback (7): Alert, Loading, Progress, Radial Progress, Skeleton, Toast,
+Tooltip.
+
+Data input (15): Calendar, Checkbox, Fieldset, File Input, Filter, Label, Radio,
+Range Slider, Rating, Select, Text Input, Textarea, Toggle, Validator, OTP.
+
+Layout (8): Divider, Drawer Sidebar, Footer, Hero, Indicator, Join, Mask, Stack.
+
+Mockup (4): Browser Mockup, Code Mockup, Phone Mockup, Window Mockup.
+
+## Minimal markup
+
+    <div data-theme="disin">
+      <article class="card">
+        <div class="card-body">
+          <span class="badge badge-primary">Ready</span>
+          <h2 class="card-title">Tactile console</h2>
+          <input class="input input-primary" placeholder="Station name">
+          <div class="card-actions">
+            <button class="btn">Cancel</button>
+            <button class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+Full instructions: https://github.com/ishuowang/disin/blob/main/skills/disin/SKILL.md
+Machine-readable install recipe: disin/ai.json
+Machine-readable component manifest: disin/components.json

@@ -1,26 +1,77 @@
 {
   "name": "disin",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.2.0",
+  "description": "A standalone skeuomorphic CSS component library with DaisyUI-compatible class names and an AI-installable Agent Skill.",
   "type": "module",
+  "license": "MIT",
+  "homepage": "https://disin.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishuowang/disin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ishuowang/disin/issues"
+  },
+  "funding": "https://ifdian.net/a/burienchow",
+  "keywords": [
+    "css",
+    "components",
+    "design-system",
+    "daisyui",
+    "skeuomorphism",
+    "agent-skill",
+    "ai"
+  ],
+  "files": [
+    "package-dist",
+    "skills",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "llms.txt"
+  ],
+  "main": "./package-dist/disin.js",
+  "module": "./package-dist/disin.js",
+  "style": "./package-dist/disin.css",
+  "exports": {
+    ".": "./package-dist/disin.js",
+    "./styles.css": "./package-dist/disin.css",
+    "./tokens.css": "./package-dist/tokens.css",
+    "./components/*.css": "./package-dist/components/*.css",
+    "./components.json": "./package-dist/components.json",
+    "./ai.json": "./package-dist/ai.json",
+    "./skill": "./skills/disin/SKILL.md",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "npm run typecheck && npm run build:package && npm run build:site",
+    "build:site": "vite build",
+    "build:package": "vite build --config vite.config.package.ts && node tools/build-package.mjs",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "typecheck": "tsc --noEmit",
+    "test:package": "npm run build:package && node tools/test-package.mjs",
+    "prepublishOnly": "npm run typecheck && npm run test:package",
+    "prepare": "npm run build:package"
   },
   "devDependencies": {
+    "@types/node": "^26.1.2",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "6.0.4",
+    "postcss": "^8.5.23",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "typescript": "6.0.3",
     "vite": "8.1.5"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=20"
   }
 }
