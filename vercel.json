@@ -4,25 +4,10 @@
   "installCommand": "npm install",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/components",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/components/:path*",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/docs/install",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/docs/install/",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/seeds/:path*",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
