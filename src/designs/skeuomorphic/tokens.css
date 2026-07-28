@@ -1,0 +1,472 @@
+.skeuo-player,
+.specimen-card {
+  --sk-ink: #181713;
+  --sk-leather: #30271f;
+  --sk-leather-dark: #1f1a16;
+  --sk-metal: #d5ccbc;
+  --sk-metal-dark: #a89e8d;
+  --sk-cream: #ede4d2;
+  --sk-lcd: #c9e388;
+  --sk-lcd-dark: #627644;
+  --sk-accent: #dc714e;
+  --sk-accent-dark: #8e3828;
+  --sk-shadow-deep: 0 24px 60px rgba(31, 26, 22, 0.35);
+  --sk-motion: cubic-bezier(.2, .8, .25, 1);
+}
+
+.skeuo-player[data-theme="sage"] {
+  --sk-accent: #7d9474;
+  --sk-accent-dark: #3f5940;
+  --sk-lcd: #d2e5aa;
+  --sk-lcd-dark: #627853;
+}
+
+.skeuo-player[data-theme="cobalt"] {
+  --sk-accent: #617d9d;
+  --sk-accent-dark: #30445f;
+  --sk-lcd: #b9d8d1;
+  --sk-lcd-dark: #526e70;
+}
+
+.tactile-button {
+  position: relative;
+  display: inline-grid;
+  min-width: 58px;
+  min-height: 42px;
+  padding: 5px;
+  border: 0;
+  border-radius: 14px;
+  color: var(--sk-ink);
+  background: #655b4e;
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.18),
+    0 2px 0 #302b25,
+    0 7px 12px rgba(33, 27, 21, 0.28);
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.tactile-button::after {
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 9px;
+  content: "";
+  pointer-events: none;
+}
+
+.tactile-button > span {
+  display: grid;
+  min-height: 32px;
+  padding: 0 12px;
+  place-items: center;
+  border-radius: 10px;
+  font: 750 11px/1 var(--font-sans, sans-serif);
+  letter-spacing: 0.08em;
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.38), transparent 36%),
+    linear-gradient(#f2eadb, #c7bdac);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -2px 3px rgba(67, 57, 46, 0.2);
+}
+
+.tactile-button--amber > span {
+  color: #fff8ef;
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.32), transparent 35%),
+    linear-gradient(var(--sk-accent), var(--sk-accent-dark));
+  text-shadow: 0 1px 1px rgba(49, 17, 12, 0.55);
+}
+
+.tactile-button--dark > span {
+  color: #d8cebb;
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.14), transparent 36%),
+    linear-gradient(#41382f, #201b17);
+}
+
+.tactile-button.is-round {
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: 50%;
+}
+
+.tactile-button.is-round::after,
+.tactile-button.is-round > span {
+  border-radius: 50%;
+}
+
+.tactile-button.is-round > span {
+  min-width: 38px;
+  min-height: 38px;
+  padding: 0;
+  font-size: 16px;
+}
+
+.tactile-button:hover {
+  transform: translateY(-1px);
+}
+
+.tactile-button:active,
+.tactile-button.is-active {
+  transform: translateY(2px);
+  box-shadow:
+    inset 0 2px 5px rgba(19, 15, 12, 0.55),
+    0 1px 0 #302b25;
+}
+
+.tactile-button:active > span,
+.tactile-button.is-active > span {
+  box-shadow:
+    inset 0 3px 6px rgba(42, 26, 18, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.tactile-button:focus-visible,
+.tonearm:focus-visible,
+.rotary-control input:focus-visible + * {
+  outline: 3px solid #f2b564;
+  outline-offset: 3px;
+}
+
+.rotary-control {
+  display: grid;
+  grid-template-columns: auto;
+  justify-items: center;
+  color: #2a251f;
+  font-family: var(--font-sans, sans-serif);
+}
+
+.rotary-control__well {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #817667, #3d352c);
+  box-shadow:
+    inset 0 2px 5px rgba(255, 255, 255, 0.22),
+    inset 0 -4px 8px rgba(24, 19, 15, 0.6),
+    0 7px 12px rgba(37, 29, 21, 0.3);
+}
+
+.rotary-control__well::after {
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 30%, #ded6c8, #8f8577 65%, #51493f);
+  box-shadow:
+    inset 0 2px 2px rgba(255, 255, 255, 0.65),
+    inset 0 -4px 6px rgba(48, 39, 30, 0.35),
+    0 1px 2px rgba(20, 16, 13, 0.7);
+  content: "";
+}
+
+.rotary-control__ticks {
+  position: absolute;
+  inset: 1px;
+  border-radius: 50%;
+  opacity: 0.48;
+  background: repeating-conic-gradient(
+    from -132deg,
+    #181713 0deg 1.4deg,
+    transparent 1.4deg 15deg
+  );
+  mask: radial-gradient(circle, transparent 0 31px, #000 32px);
+}
+
+.rotary-control__knob {
+  position: absolute;
+  z-index: 2;
+  inset: 10px;
+  border-radius: 50%;
+  transition: transform 100ms linear;
+}
+
+.rotary-control__knob i {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 3px;
+  height: 17px;
+  border-radius: 2px;
+  background: var(--sk-accent);
+  box-shadow: 0 1px 1px rgba(41, 24, 17, 0.4);
+  transform: translateX(-50%);
+}
+
+.rotary-control input {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: ew-resize;
+  opacity: 0;
+}
+
+.rotary-control > strong {
+  margin-top: 9px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.rotary-control > small {
+  margin-top: 2px;
+  color: #73695d;
+  font: 500 10px/1 var(--font-mono, monospace);
+}
+
+.lcd-panel {
+  position: relative;
+  min-width: 200px;
+  overflow: hidden;
+  padding: 13px 15px 12px;
+  border: 5px solid #554e43;
+  border-radius: 11px;
+  color: #26341d;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.2), transparent),
+    var(--sk-lcd);
+  box-shadow:
+    inset 0 0 14px rgba(56, 76, 38, 0.28),
+    0 2px 0 rgba(255, 255, 255, 0.45),
+    0 4px 9px rgba(48, 39, 29, 0.34);
+  text-shadow: 0 0 6px rgba(69, 101, 42, 0.22);
+}
+
+.lcd-panel__scan {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(23, 35, 17, 0.22) 0 1px,
+    transparent 1px 3px
+  );
+  pointer-events: none;
+}
+
+.lcd-panel__top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--sk-lcd-dark);
+  font: 700 9px/1 var(--font-mono, monospace);
+  letter-spacing: 0.12em;
+}
+
+.lcd-panel__top strong {
+  color: #283820;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+}
+
+.lcd-panel__title,
+.lcd-panel__subtitle {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.lcd-panel__title {
+  margin-top: 9px;
+  font: 750 14px/1.1 var(--font-sans, sans-serif);
+}
+
+.lcd-panel__subtitle {
+  margin-top: 4px;
+  color: var(--sk-lcd-dark);
+  font: 600 10px/1 var(--font-sans, sans-serif);
+}
+
+.record-well {
+  position: relative;
+  display: grid;
+  width: 244px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 48% 44%, transparent 0 68%, rgba(0, 0, 0, 0.15) 69% 72%, transparent 73%),
+    linear-gradient(145deg, #65584a, #2b241d);
+  box-shadow:
+    inset 0 3px 5px rgba(255, 255, 255, 0.2),
+    inset 0 -6px 12px rgba(12, 9, 7, 0.65),
+    0 15px 22px rgba(26, 20, 15, 0.42);
+}
+
+.vinyl-record {
+  position: relative;
+  width: 218px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  background: radial-gradient(circle, #111 0 3%, #242220 3.2% 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 -5px 14px rgba(0, 0, 0, 0.7),
+    0 4px 7px rgba(0, 0, 0, 0.55);
+  animation: vinyl-spin 4.2s linear infinite;
+  animation-play-state: paused;
+}
+
+.vinyl-record.is-playing {
+  animation-play-state: running;
+}
+
+.vinyl-record__grooves {
+  position: absolute;
+  inset: 5px;
+  border-radius: inherit;
+  opacity: 0.44;
+  background: repeating-radial-gradient(
+    circle,
+    transparent 0 3px,
+    rgba(255, 255, 255, 0.13) 3.5px 4px
+  );
+}
+
+.vinyl-record__shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 216deg,
+    rgba(255, 255, 255, 0.14) 0 24deg,
+    transparent 48deg 169deg,
+    rgba(255, 255, 255, 0.08) 190deg 224deg,
+    transparent 250deg
+  );
+}
+
+.vinyl-record__label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  width: 84px;
+  height: 84px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  color: #fff7e9;
+  text-align: center;
+  background:
+    radial-gradient(circle at 35% 27%, rgba(255, 255, 255, 0.4), transparent 22%),
+    var(--sk-accent);
+  box-shadow: 0 0 0 2px #111, inset 0 -4px 7px rgba(68, 25, 16, 0.3);
+  transform: translate(-50%, -50%);
+}
+
+.vinyl-record__label strong {
+  max-width: 70px;
+  overflow: hidden;
+  font: 750 10px/1.05 var(--font-sans, sans-serif);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.vinyl-record__label small {
+  max-width: 66px;
+  margin-top: 4px;
+  overflow: hidden;
+  font: 550 8px/1 var(--font-sans, sans-serif);
+  opacity: 0.76;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.vinyl-record__label i {
+  width: 8px;
+  height: 8px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: #eee5d5;
+  box-shadow: inset 0 1px 2px #50483d;
+}
+
+.tonearm {
+  position: absolute;
+  z-index: 5;
+  top: 4px;
+  right: 0;
+  width: 116px;
+  height: 225px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transform: rotate(-15deg);
+  transform-origin: 83px 28px;
+  transition: transform 700ms var(--sk-motion);
+}
+
+.tonearm.is-lowered {
+  transform: rotate(5deg);
+}
+
+.tonearm__pivot {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #f2ede4, #82786a 68%, #3f3931);
+  box-shadow: 0 5px 9px rgba(18, 14, 11, 0.56), inset 0 2px 2px #fff;
+}
+
+.tonearm__pivot i {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #62594e;
+  box-shadow: inset 0 2px 4px #302b25, 0 1px 1px #fff;
+}
+
+.tonearm__tube {
+  position: absolute;
+  top: 42px;
+  right: 34px;
+  width: 13px;
+  height: 148px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #70675b, #f1ece3 36%, #aaa093 66%, #514a41);
+  box-shadow: 2px 4px 5px rgba(24, 18, 14, 0.45);
+  transform: rotate(10deg);
+  transform-origin: top;
+}
+
+.tonearm__head {
+  position: absolute;
+  right: 38px;
+  bottom: 20px;
+  width: 36px;
+  height: 20px;
+  border-radius: 6px 11px 8px 4px;
+  background: linear-gradient(#d7d0c5, #776e63);
+  box-shadow: 2px 4px 5px rgba(24, 18, 14, 0.45), inset 0 1px 1px #fff;
+  transform: rotate(10deg);
+}
+
+@keyframes vinyl-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vinyl-record,
+  .tonearm,
+  .tactile-button,
+  .rotary-control__knob {
+    transition-duration: 0.001ms;
+    animation-duration: 0.001ms;
+  }
+}
