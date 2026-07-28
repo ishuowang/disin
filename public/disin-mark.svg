@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">Disin</title>
+  <rect width="96" height="96" rx="24" fill="#171713"/>
+  <path d="M25 22h22c17 0 29 10 29 26S64 74 47 74H25V22Z" fill="#e8dfcc"/>
+  <path d="M40 36h7c9 0 14 4 14 12s-5 12-14 12h-7V36Z" fill="#171713"/>
+  <circle cx="72" cy="24" r="7" fill="#dc714e"/>
+</svg>
