@@ -3,5 +3,27 @@
   "framework": "vite",
   "installCommand": "npm install",
   "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/components",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/components/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/docs/install",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/docs/install/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/seeds/:path*",
+      "destination": "/index.html"
+    }
+  ]
 }

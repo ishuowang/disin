@@ -3,7 +3,8 @@ import { createRoot } from "react-dom/client";
 import App from "./app";
 import "./styles.css";
 import "./library/styles.css";
-import "./designs/skeuomorphic/tokens.css";
+import "./seeds/skeuomorphic/tokens.css";
+import "./docs/docs.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

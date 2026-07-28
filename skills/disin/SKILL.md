@@ -36,10 +36,10 @@ does not require Tailwind CSS, DaisyUI, React, or a JavaScript runtime.
    @import "disin/components/input.css";
    ```
 
-4. Put `data-theme="disin"` on the application root:
+4. Put the Disin theme and chosen seed on the application root:
 
    ```html
-   <html data-theme="disin">
+   <html data-theme="disin" data-seed="skeuomorphic">
    ```
 
 5. If the npm registry is unavailable, use the GitHub package source:
@@ -87,7 +87,7 @@ Compose the semantic class names first, then add product-specific layout classes
 ## Minimal example
 
 ```html
-<div data-theme="disin">
+<div data-theme="disin" data-seed="skeuomorphic">
   <article class="card">
     <div class="card-body">
       <span class="badge badge-primary">Ready</span>
@@ -114,7 +114,8 @@ After implementation:
 4. Confirm there is no horizontal overflow.
 5. Confirm focus, disabled, checked, open, and validation states remain legible.
 
-Reference gallery: https://disin.vercel.app
+Component docs: https://disin.vercel.app/components/
+Seed reference: https://disin.vercel.app/seeds/skeuomorphic/
 Compact context: https://disin.vercel.app/llms.txt
 Live manifest: https://disin.vercel.app/components.json
 Component manifest: https://unpkg.com/disin/package-dist/components.json

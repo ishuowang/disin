@@ -4,16 +4,22 @@
 
 # Disin
 
-**Skeuomorphic CSS components for people and coding agents.**
+**Design-seed CSS components for people and coding agents.**
 
 一套可直接安装的拟物化 CSS 组件库：兼容熟悉的 DaisyUI 类名，同时提供
 Agent Skill、机器可读组件清单和完整在线预览。
 
-[Live gallery](https://disin.vercel.app) · [68 components](https://disin.vercel.app/#library) · [Agent Skill](./skills/disin/SKILL.md) · [Design notes](./designs/skeuomorphic/README.md)
+[Component docs](https://disin.vercel.app/components/) · [Seed 01](https://disin.vercel.app/seeds/skeuomorphic/) · [Agent Skill](./skills/disin/SKILL.md) · [Design notes](./designs/skeuomorphic/README.md)
 
 </div>
 
-![Disin 68-component skeuomorphic library](./docs/component-library.png)
+| Component index | Component detail |
+| --- | --- |
+| ![Disin 68-component skeuomorphic library](./docs/component-library.png) | ![Disin button component documentation](./docs/component-detail.png) |
+
+<p align="center">
+  <img src="./docs/components-mobile.png" width="280" alt="Disin mobile component documentation" />
+</p>
 
 ## Why Disin?
 
@@ -45,7 +51,7 @@ npm install disin
 ```
 
 ```html
-<html data-theme="disin">
+<html data-theme="disin" data-seed="skeuomorphic">
   <button class="btn btn-primary">Save changes</button>
 </html>
 ```
@@ -111,8 +117,8 @@ build this interface. Keep native semantics and validate it at 390px.
 | Mockup | 4 | Browser, Code, Phone, Window |
 | **Total** | **68** | Complete DaisyUI 5.7.4 catalog baseline |
 
-Search, filter, and interact with every component in the
-[live catalog](https://disin.vercel.app/#library).
+Search and interact with every component in the
+[live documentation](https://disin.vercel.app/components/).
 
 ## Compose with familiar classes
 
@@ -155,8 +161,11 @@ src/
 │       ├── data-input.css
 │       ├── layout.css
 │       └── mockup.css
-├── catalog/                   # interactive gallery
-└── designs/skeuomorphic/      # original tactile composition
+├── catalog/                   # 68 reusable live demos
+├── docs/                      # documentation shell and component pages
+└── seeds/
+    ├── registry.ts            # active and planned visual languages
+    └── skeuomorphic/          # Seed 01 implementation and composition
 skills/disin/SKILL.md          # portable Agent Skill
 llms.txt                       # compact AI context
 package-dist/                  # generated npm package
@@ -190,14 +199,14 @@ npm run test:package
 5. **Agents use contracts, not guesswork.** Every component and install path is
    machine-readable.
 
-## Add another visual language
+## Add another design seed
 
-Disin remains a broader design archive. Future styles live under
-`src/designs/<style>/`, while the current installable package is the
-Skeuomorphic collection.
+Disin is a broader design archive organized as seeds. Future visual languages
+live under `src/seeds/<seed>/`; the current installable package is Seed 01,
+Skeuomorphic.
 
-1. Add the style to `src/designs/registry.ts`.
-2. Keep its tokens scoped and independently reusable.
+1. Add the seed to `src/seeds/registry.ts`.
+2. Implement it under `src/seeds/<seed>/` and keep its tokens scoped.
 3. Add a real composition plus isolated component specimens.
 4. Record decisions under `designs/<style>/`.
 
