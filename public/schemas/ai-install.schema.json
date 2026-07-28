@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://disin.vercel.app/schemas/ai-install.schema.json",
+  "title": "Disin AI installation recipe",
+  "type": "object",
+  "required": ["name", "version", "intent", "install", "cssImport", "selectiveCssImports", "rootAttribute", "manifest", "instructions"],
+  "properties": {
+    "name": { "const": "disin" },
+    "version": { "type": "string" },
+    "intent": { "type": "string" },
+    "install": {
+      "type": "object",
+      "required": ["npm", "pnpm", "yarn", "bun", "github", "skill"]
+    },
+    "cssImport": { "type": "string" },
+    "selectiveCssImports": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 2
+    },
+    "rootAttribute": { "const": "data-theme=\"disin\"" },
+    "manifest": { "type": "string" },
+    "instructions": { "type": "string", "format": "uri" }
+  }
+}

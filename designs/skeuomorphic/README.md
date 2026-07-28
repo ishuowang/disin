@@ -29,6 +29,14 @@ turning a product into decoration.
 
 ## Components
 
+The installable CSS collection now covers all 68 components in the DaisyUI
+5.7.4 catalog. The typed manifest lives at
+[`src/library/components.ts`](../../src/library/components.ts), and every
+component is available both through the complete `disin/styles.css` entry and
+an individual `disin/components/<id>.css` entry.
+
+The original music-player study remains as a more expressive composed example:
+
 - `TactileButton`
 - `RotaryKnob`
 - `LcdPanel`

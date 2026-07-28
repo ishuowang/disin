@@ -1,0 +1,351 @@
+@layer disin.components {
+  :where([data-theme="disin"], .disin) .breadcrumbs {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  :where([data-theme="disin"], .disin) .breadcrumbs > ul {
+    align-items: center;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: .25rem;
+    white-space: nowrap;
+  }
+
+  :where([data-theme="disin"], .disin) .breadcrumbs li {
+    align-items: center;
+    display: flex;
+    font-size: .75rem;
+    font-weight: 700;
+  }
+
+  :where([data-theme="disin"], .disin) .breadcrumbs li + li::before {
+    color: var(--disin-metal-dark);
+    content: "›";
+    font: 900 1rem/1 monospace;
+    margin-inline: .55rem;
+  }
+
+  :where([data-theme="disin"], .disin) .breadcrumbs a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  :where([data-theme="disin"], .disin) .dock {
+    align-items: end;
+    background: linear-gradient(180deg, var(--disin-metal-light), var(--disin-metal));
+    border: 1px solid var(--disin-metal-dark);
+    border-radius: 1.2rem 1.2rem 0 0;
+    bottom: 0;
+    box-shadow: 0 -1px 0 rgb(255 255 255 / 72%) inset, 0 -8px 24px rgb(48 39 29 / 15%);
+    display: flex;
+    height: 4rem;
+    inset-inline: 0;
+    justify-content: center;
+    padding: .35rem;
+    position: fixed;
+    z-index: 30;
+  }
+
+  :where([data-theme="disin"], .disin) .dock > * {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    border-radius: .75rem;
+    color: var(--disin-muted);
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    font: inherit;
+    font-size: .65rem;
+    gap: .15rem;
+    height: 100%;
+    justify-content: center;
+    max-width: 7rem;
+    padding: .25rem .6rem;
+  }
+
+  :where([data-theme="disin"], .disin) .dock > :is(.dock-active, [aria-current="page"]) {
+    background: var(--disin-leather);
+    box-shadow: var(--disin-shadow-inset);
+    color: var(--disin-lcd);
+    text-shadow: 0 0 .4rem rgb(200 221 150 / 40%);
+  }
+
+  :where([data-theme="disin"], .disin) .dock-xs { height: 2.8rem; }
+  :where([data-theme="disin"], .disin) .dock-sm { height: 3.3rem; }
+  :where([data-theme="disin"], .disin) .dock-lg { height: 4.8rem; }
+  :where([data-theme="disin"], .disin) .dock-xl { height: 5.4rem; }
+
+  :where([data-theme="disin"], .disin) .link {
+    color: color-mix(in srgb, var(--color-primary) 82%, var(--disin-ink));
+    cursor: pointer;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: .22em;
+  }
+
+  :where([data-theme="disin"], .disin) .link-hover:not(:hover) { text-decoration-color: transparent; }
+  :where([data-theme="disin"], .disin) .link-neutral { color: var(--color-neutral); }
+  :where([data-theme="disin"], .disin) .link-primary { color: var(--color-primary); }
+  :where([data-theme="disin"], .disin) .link-secondary { color: var(--color-secondary); }
+  :where([data-theme="disin"], .disin) .link-accent { color: var(--color-accent); }
+  :where([data-theme="disin"], .disin) .link-info { color: var(--color-info); }
+  :where([data-theme="disin"], .disin) .link-success { color: var(--color-success); }
+  :where([data-theme="disin"], .disin) .link-warning { color: var(--color-warning); }
+  :where([data-theme="disin"], .disin) .link-error { color: var(--color-error); }
+
+  :where([data-theme="disin"], .disin) .menu {
+    background: var(--disin-paper);
+    border: 1px solid var(--disin-line);
+    border-radius: var(--radius-box);
+    box-shadow: var(--disin-shadow-soft);
+    display: flex;
+    flex-direction: column;
+    font-size: .8rem;
+    gap: .2rem;
+    list-style: none;
+    margin: 0;
+    padding: .4rem;
+  }
+
+  :where([data-theme="disin"], .disin) .menu-horizontal {
+    flex-direction: row;
+  }
+
+  :where([data-theme="disin"], .disin) .menu li {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    position: relative;
+  }
+
+  :where([data-theme="disin"], .disin) .menu li > :where(a, button, summary) {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    border-radius: .65rem;
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    font: inherit;
+    gap: .55rem;
+    min-height: 2.35rem;
+    padding: .55rem .7rem;
+    text-align: start;
+    text-decoration: none;
+  }
+
+  :where([data-theme="disin"], .disin) .menu li > :where(a, button, summary):hover {
+    background: rgb(72 59 45 / 8%);
+    box-shadow: 0 1px 0 rgb(255 255 255 / 62%) inset;
+  }
+
+  :where([data-theme="disin"], .disin) .menu li > :where(.active, [aria-current="page"]) {
+    background: var(--disin-leather);
+    box-shadow: var(--disin-shadow-inset);
+    color: var(--disin-lcd);
+  }
+
+  :where([data-theme="disin"], .disin) .menu-title {
+    color: var(--disin-muted);
+    font-size: .65rem;
+    font-weight: 850;
+    letter-spacing: .08em;
+    padding: .65rem .7rem .25rem;
+    text-transform: uppercase;
+  }
+
+  :where([data-theme="disin"], .disin) .megamenu {
+    align-items: center;
+    background: linear-gradient(180deg, var(--disin-metal-light), var(--disin-metal));
+    border: 1px solid var(--disin-metal-dark);
+    border-radius: var(--radius-box);
+    box-shadow: var(--disin-shadow-raised);
+    display: flex;
+    gap: .25rem;
+    list-style: none;
+    margin: 0;
+    padding: .4rem;
+    position: relative;
+  }
+
+  :where([data-theme="disin"], .disin) .megamenu > li > :where(a, button) {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    border-radius: .6rem;
+    color: inherit;
+    display: inline-flex;
+    font: inherit;
+    font-size: .8rem;
+    font-weight: 750;
+    min-height: 2.4rem;
+    padding: .55rem .8rem;
+    text-decoration: none;
+  }
+
+  :where([data-theme="disin"], .disin) .megamenu :is(.megamenu-content, [popover]) {
+    background: var(--disin-paper);
+    border: 1px solid var(--disin-line);
+    border-radius: var(--radius-box);
+    box-shadow: var(--disin-shadow-raised);
+    inset: calc(100% + .55rem) 0 auto;
+    margin: 0;
+    padding: 1rem;
+    position: absolute;
+    width: 100%;
+    z-index: 45;
+  }
+
+  :where([data-theme="disin"], .disin) .megamenu-vertical { align-items: stretch; flex-direction: column; }
+  :where([data-theme="disin"], .disin) .megamenu-active { background: var(--disin-leather); color: var(--disin-lcd); }
+
+  :where([data-theme="disin"], .disin) .navbar {
+    align-items: center;
+    background: linear-gradient(180deg, var(--disin-metal-light), var(--disin-metal));
+    border: 1px solid var(--disin-metal-dark);
+    border-radius: var(--radius-box);
+    box-shadow: var(--disin-shadow-raised);
+    display: flex;
+    gap: .65rem;
+    min-height: 4rem;
+    padding: .55rem .7rem;
+    width: 100%;
+  }
+
+  :where([data-theme="disin"], .disin) .navbar-start { align-items: center; display: flex; justify-content: flex-start; width: 50%; }
+  :where([data-theme="disin"], .disin) .navbar-center { align-items: center; display: flex; flex-shrink: 0; justify-content: center; }
+  :where([data-theme="disin"], .disin) .navbar-end { align-items: center; display: flex; justify-content: flex-end; width: 50%; }
+
+  :where([data-theme="disin"], .disin) .join {
+    align-items: stretch;
+    display: inline-flex;
+  }
+
+  :where([data-theme="disin"], .disin) .join-vertical { flex-direction: column; }
+
+  :where([data-theme="disin"], .disin) .join:not(.join-vertical) > .join-item:not(:first-child) {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    margin-inline-start: -1px;
+  }
+
+  :where([data-theme="disin"], .disin) .join:not(.join-vertical) > .join-item:not(:last-child) {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  :where([data-theme="disin"], .disin) .join-vertical > .join-item:not(:first-child) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: -1px;
+  }
+
+  :where([data-theme="disin"], .disin) .join-vertical > .join-item:not(:last-child) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  :where([data-theme="disin"], .disin) .steps {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    list-style: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  :where([data-theme="disin"], .disin) .steps-vertical { grid-auto-flow: row; grid-auto-rows: 1fr; }
+
+  :where([data-theme="disin"], .disin) .step {
+    align-items: center;
+    color: var(--disin-muted);
+    display: grid;
+    font-size: .68rem;
+    font-weight: 750;
+    grid-template-rows: 2rem 1fr;
+    justify-items: center;
+    min-width: 6rem;
+    position: relative;
+    text-align: center;
+  }
+
+  :where([data-theme="disin"], .disin) .step::before {
+    background: var(--disin-metal-dark);
+    content: "";
+    height: 2px;
+    position: absolute;
+    top: .95rem;
+    width: 100%;
+  }
+
+  :where([data-theme="disin"], .disin) .step::after {
+    background: var(--disin-metal);
+    border: 2px solid var(--disin-paper);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px var(--disin-metal-dark), var(--disin-shadow-soft);
+    content: counter(step);
+    counter-increment: step;
+    display: grid;
+    font: 800 .65rem/1 "DM Mono", monospace;
+    height: 1.5rem;
+    place-content: center;
+    position: relative;
+    width: 1.5rem;
+  }
+
+  :where([data-theme="disin"], .disin) .steps { counter-reset: step; }
+  :where([data-theme="disin"], .disin) .step-primary::before { background: var(--color-primary); }
+  :where([data-theme="disin"], .disin) .step-primary::after { background: var(--color-primary); color: var(--color-primary-content); }
+
+  :where([data-theme="disin"], .disin) .tabs {
+    align-items: end;
+    display: flex;
+    gap: .2rem;
+  }
+
+  :where([data-theme="disin"], .disin) .tab {
+    align-items: center;
+    background: linear-gradient(180deg, var(--disin-metal-light), var(--disin-metal));
+    border: 1px solid var(--disin-metal-dark);
+    border-bottom-color: var(--disin-line);
+    border-radius: .75rem .75rem .2rem .2rem;
+    color: var(--disin-muted);
+    cursor: pointer;
+    display: inline-flex;
+    font: 750 .76rem/1 inherit;
+    justify-content: center;
+    min-height: 2.5rem;
+    padding: .65rem .9rem;
+    text-decoration: none;
+  }
+
+  :where([data-theme="disin"], .disin) .tab-active,
+  :where([data-theme="disin"], .disin) .tab[aria-selected="true"] {
+    background: var(--disin-paper);
+    border-bottom-color: var(--disin-paper);
+    box-shadow: 0 2px 0 var(--disin-paper), 0 1px 0 white inset;
+    color: var(--disin-ink);
+    translate: 0 1px;
+  }
+
+  :where([data-theme="disin"], .disin) .tabs-box {
+    align-items: center;
+    background: var(--disin-paper-deep);
+    border: 1px solid var(--disin-line);
+    border-radius: var(--radius-box);
+    box-shadow: var(--disin-shadow-inset);
+    padding: .3rem;
+  }
+
+  :where([data-theme="disin"], .disin) .tabs-box .tab {
+    border-color: transparent;
+    border-radius: .7rem;
+    box-shadow: none;
+  }
+}

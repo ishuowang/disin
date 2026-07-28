@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ComponentCatalog } from "./catalog/component-catalog";
 import { designStyles } from "./designs/registry";
 import {
   LcdPanel,
@@ -31,7 +32,7 @@ function App() {
   const [knobValue, setKnobValue] = useState(62);
 
   return (
-    <div className="site-shell">
+    <div className="site-shell disin" data-theme="disin">
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Disin home">
           <img src="/disin-mark.svg" alt="" />
@@ -39,8 +40,8 @@ function App() {
         </a>
         <nav aria-label="Primary navigation">
           <a href="#collection">Collection</a>
-          <a href="#specimens">Components</a>
-          <a href="#reference">Reference</a>
+          <a href="#library">68 Components</a>
+          <a href="#install">Install</a>
         </nav>
         <a className="header-link" href="https://github.com/ishuowang/disin">
           GitHub <ArrowIcon />
@@ -53,18 +54,18 @@ function App() {
             <p className="eyebrow"><span>Independent design archive</span><i /></p>
             <h1>Interfaces<br />worth <em>touching.</em></h1>
             <p className="hero__lede">
-              A growing collection of visual languages, preserved as reusable
-              code, decision notes, and interactive references.
+              A growing collection of visual languages—now a complete,
+              installable CSS library with familiar DaisyUI class names.
             </p>
             <div className="hero__actions">
-              <a className="primary-action" href="#collection">Explore style 01 <span>↓</span></a>
-              <span>设计语言 · 组件 · 原始稿</span>
+              <a className="primary-action" href="#library">Explore 68 components <span>↓</span></a>
+              <span>CSS package · Agent skill · 设计语言</span>
             </div>
           </div>
           <div className="hero__index" aria-label="Archive summary">
             <span>VOL.</span>
             <strong>01</strong>
-            <p>ONE ACTIVE STYLE<br />FIVE PRIMITIVES<br />ONE COMPOSITION</p>
+            <p>ONE ACTIVE STYLE<br />68 COMPONENTS<br />ZERO RUNTIME DEPS</p>
           </div>
         </section>
 
@@ -172,6 +173,47 @@ function App() {
                 <VinylRecord playing title="Disin" artist="Style archive" />
               </div>
               <p>Motion belongs to the object with a reason to move.</p>
+            </article>
+          </div>
+        </section>
+
+        <ComponentCatalog />
+
+        <section className="package-install" id="install">
+          <div className="package-install__intro">
+            <p className="eyebrow"><span>Package + agent skill</span><i /></p>
+            <h2>Install once.<br /><em>Let agents compose.</em></h2>
+            <p>
+              The npm package ships the full CSS, typed component manifest,
+              machine-readable recipes, and a portable Agent Skill.
+            </p>
+            <div className="package-install__badges">
+              <span>68 / 68 components</span>
+              <span>0 runtime dependencies</span>
+              <span>Daisy-compatible classes</span>
+            </div>
+          </div>
+
+          <div className="install-grid">
+            <article>
+              <header><span>01</span><strong>FOR DEVELOPERS</strong></header>
+              <p>Install the package, then import one stylesheet.</p>
+              <pre><code>npm install disin</code></pre>
+              <pre><code>@import "disin/styles.css";</code></pre>
+              <p className="install-note">Add <code>data-theme="disin"</code> to the application root. For smaller bundles, import <code>disin/tokens.css</code> plus individual files such as <code>disin/components/button.css</code>.</p>
+            </article>
+
+            <article>
+              <header><span>02</span><strong>FOR AI AGENTS</strong></header>
+              <p>Install the Disin skill for Codex, Claude Code, Cursor, and other compatible agents.</p>
+              <pre><code>npx skills add ishuowang/disin --skill disin -y</code></pre>
+              <p className="install-note">Agents receive exact installation rules, semantic class guidance, accessibility constraints, and the component manifest.</p>
+              <div className="install-links">
+                <a href="/llms.txt">llms.txt ↗</a>
+                <a href="https://github.com/ishuowang/disin/blob/main/skills/disin/SKILL.md">SKILL.md ↗</a>
+                <a href="/components.json">Manifest ↗</a>
+                <a href="/ai.json">AI recipe ↗</a>
+              </div>
             </article>
           </div>
         </section>
