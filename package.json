@@ -61,10 +61,12 @@
     "prepare": "npm run build:package"
   },
   "devDependencies": {
+    "@icons-pack/react-simple-icons": "^13.13.0",
     "@types/node": "^26.1.2",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "6.0.4",
+    "lucide-react": "^1.27.0",
     "postcss": "^8.5.23",
     "react": "19.2.8",
     "react-dom": "19.2.8",

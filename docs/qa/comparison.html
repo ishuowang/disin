@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Disin design comparison</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 28px;
+        color: #f3eee6;
+        background: #171411;
+        font: 14px/1.5 ui-sans-serif, system-ui, sans-serif;
+      }
+      h1 { margin: 0 0 24px; font-size: 24px; }
+      h2 { margin: 0 0 12px; font-size: 16px; }
+      section { margin-bottom: 34px; }
+      .pair {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      figure {
+        margin: 0;
+        overflow: hidden;
+        border: 1px solid #50483f;
+        border-radius: 10px;
+        background: #28231e;
+      }
+      figcaption {
+        padding: 9px 12px;
+        border-bottom: 1px solid #50483f;
+        color: #c9df96;
+        font: 11px/1.2 ui-monospace, monospace;
+        text-transform: uppercase;
+      }
+      img { display: block; width: 100%; height: auto; }
+      .mobile-pair {
+        grid-template-columns: 390px 390px;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DaisyUI information architecture → Disin skeuomorphic seed</h1>
+    <section>
+      <h2>Component index · 1440 × 1000</h2>
+      <div class="pair">
+        <figure><figcaption>Reference structure</figcaption><img src="reference-components-desktop.png" alt="DaisyUI component index reference" /></figure>
+        <figure><figcaption>Disin implementation</figcaption><img src="implementation-components-desktop.png" alt="Disin component index implementation" /></figure>
+      </div>
+    </section>
+    <section>
+      <h2>Button detail · 1440 × 1000</h2>
+      <div class="pair">
+        <figure><figcaption>Reference structure</figcaption><img src="reference-button-desktop.png" alt="DaisyUI button page reference" /></figure>
+        <figure><figcaption>Disin implementation</figcaption><img src="implementation-button-desktop.png" alt="Disin button page implementation" /></figure>
+      </div>
+    </section>
+    <section>
+      <h2>Component index · 390 × 844</h2>
+      <div class="pair mobile-pair">
+        <figure><figcaption>Reference structure</figcaption><img src="reference-components-mobile.png" alt="DaisyUI mobile component index reference" /></figure>
+        <figure><figcaption>Disin implementation</figcaption><img src="implementation-components-mobile.png" alt="Disin mobile component index implementation" /></figure>
+      </div>
+    </section>
+    <section>
+      <h2>Button detail · 390 × 844</h2>
+      <div class="pair mobile-pair">
+        <figure><figcaption>Reference structure</figcaption><img src="reference-button-mobile.png" alt="DaisyUI mobile button page reference" /></figure>
+        <figure><figcaption>Disin implementation</figcaption><img src="implementation-button-mobile.png" alt="Disin mobile button page implementation" /></figure>
+      </div>
+    </section>
+  </body>
+</html>

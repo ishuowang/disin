@@ -1,9 +1,9 @@
 # Skeuomorphic · 拟物化
 
-Disin’s first style studies how material cues can clarify interaction without
+Disin’s first design seed studies how material cues can clarify interaction without
 turning a product into decoration.
 
-首个设计语言研究如何用材质、深度与机械反馈解释交互，同时避免为了“复古”而复古。
+首个设计 Seed 研究如何用材质、深度与机械反馈解释交互，同时避免为了“复古”而复古。
 
 ## Principles
 

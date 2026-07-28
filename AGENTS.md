@@ -7,16 +7,17 @@
 - Run `npm run typecheck` and `npm run build` before pushing.
 - Delete feature branches after merging.
 
-## Design archive
+## Design seed archive
 
-- Add every style beneath `src/designs/<style>/`.
+- Register every visual language in `src/seeds/registry.ts` and implement it
+  beneath `src/seeds/<seed>/`.
 - The installable CSS library lives under `src/library/`; keep component families
   split by category and preserve DaisyUI-compatible class names.
 - Keep `src/library/components.ts`, the gallery, `llms.txt`, and the Agent Skill
   aligned whenever component coverage changes.
-- Keep tokens scoped to the style root; do not leak style-specific globals.
-- A style entry should include reusable components, one composed example, and a
-  short decision record in `designs/<style>/`.
+- Keep tokens scoped to the seed root; do not leak seed-specific globals.
+- A seed entry should include reusable components, one composed example, and a
+  short decision record in `designs/<seed>/`.
 - Preserve source artifacts under `public/references/`; do not make the gallery
   runtime depend on them.
 - Prefer CSS and inline SVG for design primitives so examples remain portable.

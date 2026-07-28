@@ -1,5 +1,19 @@
 import { useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import {
+  ChevronLeft,
+  ChevronRight,
+  FileText,
+  Home,
+  Image,
+  Library,
+  Plus,
+  Power,
+  PowerOff,
+  Search,
+  Settings,
+  Sparkles,
+} from "lucide-react";
+import {
   componentCategories,
   componentCount,
   disinComponents,
@@ -15,22 +29,23 @@ function Portrait({ label = "D" }: { label?: string }) {
   return <div className="catalog-portrait">{label}</div>;
 }
 
-function openCatalogModal() {
-  (document.getElementById("disin-catalog-modal") as HTMLDialogElement | null)?.showModal();
+function openCatalogModal(id: string) {
+  (document.getElementById(id) as HTMLDialogElement | null)?.showModal();
 }
 
-function closeCatalogModal() {
-  (document.getElementById("disin-catalog-modal") as HTMLDialogElement | null)?.close();
+function closeCatalogModal(id: string) {
+  (document.getElementById(id) as HTMLDialogElement | null)?.close();
 }
 
-function ComponentDemo({ id }: { id: string }) {
+export function ComponentDemo({ id, instanceId = id }: { id: string; instanceId?: string }) {
+  const modalId = `disin-catalog-modal-${instanceId}`;
   switch (id) {
     case "button":
       return (
         <div className="demo-row">
           <button className="btn btn-primary">Primary</button>
           <button className="btn btn-secondary btn-outline">Outline</button>
-          <button className="btn btn-circle" aria-label="Add">+</button>
+          <button className="btn btn-circle" aria-label="Add"><Plus aria-hidden="true" /></button>
         </div>
       );
     case "dropdown":
@@ -46,23 +61,23 @@ function ComponentDemo({ id }: { id: string }) {
     case "fab":
       return (
         <div className="fab">
-          <button className="btn btn-circle" aria-label="New note">N</button>
-          <button className="btn btn-circle" aria-label="New photo">P</button>
-          <button className="btn btn-primary fab-main-action" aria-label="Create">+</button>
+          <button className="btn btn-circle" aria-label="New note"><FileText aria-hidden="true" /></button>
+          <button className="btn btn-circle" aria-label="New photo"><Image aria-hidden="true" /></button>
+          <button className="btn btn-primary fab-main-action" aria-label="Create"><Plus aria-hidden="true" /></button>
         </div>
       );
     case "modal":
       return (
         <>
-          <button className="btn btn-primary" type="button" onClick={openCatalogModal}>Open panel</button>
-          <dialog className="modal" id="disin-catalog-modal" aria-labelledby="disin-modal-title">
+          <button className="btn btn-primary" type="button" onClick={() => openCatalogModal(modalId)}>Open panel</button>
+          <dialog className="modal" id={modalId} aria-labelledby={`${modalId}-title`}>
             <div className="modal-box">
               <span className="badge badge-primary">Material dialog</span>
-              <h3 id="disin-modal-title">Confirm the next move</h3>
+              <h3 id={`${modalId}-title`}>Confirm the next move</h3>
               <p>Native dialog semantics with a dimensional instrument-panel surface.</p>
               <div className="modal-action">
-                <button className="btn" type="button" onClick={closeCatalogModal}>Close</button>
-                <button className="btn btn-primary" type="button" onClick={closeCatalogModal}>Confirm</button>
+                <button className="btn" type="button" onClick={() => closeCatalogModal(modalId)}>Close</button>
+                <button className="btn btn-primary" type="button" onClick={() => closeCatalogModal(modalId)}>Confirm</button>
               </div>
             </div>
           </dialog>
@@ -72,27 +87,27 @@ function ComponentDemo({ id }: { id: string }) {
       return (
         <label className="swap btn btn-circle" aria-label="Toggle signal">
           <input type="checkbox" />
-          <span className="swap-on">●</span>
-          <span className="swap-off">○</span>
+          <span className="swap-on"><Power aria-hidden="true" /></span>
+          <span className="swap-off"><PowerOff aria-hidden="true" /></span>
         </label>
       );
     case "theme-controller":
       return (
         <div className="demo-row">
-          <label className="label"><input className="theme-controller radio radio-primary" type="radio" name="catalog-theme" defaultChecked /> Amber</label>
-          <label className="label"><input className="theme-controller radio radio-secondary" type="radio" name="catalog-theme" /> Sage</label>
+          <label className="label"><input className="theme-controller radio radio-primary" type="radio" name={`catalog-theme-${instanceId}`} defaultChecked /> Amber</label>
+          <label className="label"><input className="theme-controller radio radio-secondary" type="radio" name={`catalog-theme-${instanceId}`} /> Sage</label>
         </div>
       );
     case "accordion":
       return (
         <div className="demo-stack demo-wide">
           <div className="collapse">
-            <input type="radio" name="catalog-accordion" defaultChecked aria-label="Open What is Disin" />
+            <input type="radio" name={`catalog-accordion-${instanceId}`} defaultChecked aria-label="Open What is Disin" />
             <div className="collapse-title">What is Disin?</div>
             <div className="collapse-content">A tactile CSS component library.</div>
           </div>
           <div className="collapse">
-            <input type="radio" name="catalog-accordion" aria-label="Open Does it need Tailwind" />
+            <input type="radio" name={`catalog-accordion-${instanceId}`} aria-label="Open Does it need Tailwind" />
             <div className="collapse-title">Does it need Tailwind?</div>
             <div className="collapse-content">No. Import one CSS file.</div>
           </div>
@@ -220,9 +235,9 @@ function ComponentDemo({ id }: { id: string }) {
     case "dock":
       return (
         <nav className="dock">
-          <button><Glyph>⌂</Glyph><span>Home</span></button>
-          <button className="dock-active"><Glyph>◫</Glyph><span>Library</span></button>
-          <button><Glyph>⚙</Glyph><span>Setup</span></button>
+          <button><Glyph><Home aria-hidden="true" /></Glyph><span>Home</span></button>
+          <button className="dock-active"><Glyph><Library aria-hidden="true" /></Glyph><span>Library</span></button>
+          <button><Glyph><Settings aria-hidden="true" /></Glyph><span>Setup</span></button>
         </nav>
       );
     case "link":
@@ -281,7 +296,11 @@ function ComponentDemo({ id }: { id: string }) {
     case "calendar":
       return (
         <div className="calendar">
-          <div className="catalog-calendar-head"><button>‹</button><strong>JULY 2026</strong><button>›</button></div>
+          <div className="catalog-calendar-head">
+            <button aria-label="Previous month"><ChevronLeft aria-hidden="true" /></button>
+            <strong>JULY 2026</strong>
+            <button aria-label="Next month"><ChevronRight aria-hidden="true" /></button>
+          </div>
           <table><thead><tr>{["M", "T", "W", "T", "F", "S", "S"].map((day, index) => <th key={`${day}-${index}`}>{day}</th>)}</tr></thead>
             <tbody><tr>{[27, 28, 29, 30, 1, 2, 3].map((day) => <td key={day}>{day}</td>)}</tr><tr>{[4, 5, 6, 7, 8, 9, 10].map((day) => <td key={day}><button className={day === 7 ? "is-selected" : ""}>{day}</button></td>)}</tr></tbody>
           </table>
@@ -294,19 +313,19 @@ function ComponentDemo({ id }: { id: string }) {
     case "file-input":
       return <input className="file-input file-input-primary" type="file" aria-label="Upload reference" />;
     case "filter":
-      return <div className="filter"><label><input type="radio" name="catalog-filter" defaultChecked /> All</label><label><input type="radio" name="catalog-filter" /> Actions</label><label><input type="radio" name="catalog-filter" /> Forms</label></div>;
+      return <div className="filter"><label><input type="radio" name={`catalog-filter-${instanceId}`} defaultChecked /> All</label><label><input type="radio" name={`catalog-filter-${instanceId}`} /> Actions</label><label><input type="radio" name={`catalog-filter-${instanceId}`} /> Forms</label></div>;
     case "label":
       return <label className="label demo-wide"><span>Archive name</span><span>Optional</span></label>;
     case "radio":
-      return <div className="demo-row"><label className="label"><input className="radio radio-primary" type="radio" name="catalog-radio" defaultChecked /> Amber</label><label className="label"><input className="radio radio-secondary" type="radio" name="catalog-radio" /> Sage</label></div>;
+      return <div className="demo-row"><label className="label"><input className="radio radio-primary" type="radio" name={`catalog-radio-${instanceId}`} defaultChecked /> Amber</label><label className="label"><input className="radio radio-secondary" type="radio" name={`catalog-radio-${instanceId}`} /> Sage</label></div>;
     case "range":
       return <input className="range range-primary" type="range" min="0" max="100" defaultValue="62" aria-label="Output" />;
     case "rating":
-      return <div className="rating">{[1, 2, 3, 4, 5].map((value) => <input className="mask mask-star-2" type="radio" name="catalog-rating" aria-label={`${value} stars`} defaultChecked={value === 4} key={value} />)}</div>;
+      return <div className="rating">{[1, 2, 3, 4, 5].map((value) => <input className="mask mask-star-2" type="radio" name={`catalog-rating-${instanceId}`} aria-label={`${value} stars`} defaultChecked={value === 4} key={value} />)}</div>;
     case "select":
       return <select className="select select-primary" defaultValue="amber"><option value="amber">Amber material</option><option value="sage">Sage material</option><option value="cobalt">Cobalt material</option></select>;
     case "input":
-      return <label className="input input-primary"><Glyph>⌕</Glyph><input placeholder="Search components…" /></label>;
+      return <label className="input input-primary"><Glyph><Search aria-hidden="true" /></Glyph><input placeholder="Search components…" /></label>;
     case "textarea":
       return <textarea className="textarea textarea-primary" defaultValue="The interface should explain its own physics." />;
     case "toggle":
@@ -334,7 +353,7 @@ function ComponentDemo({ id }: { id: string }) {
     case "join":
       return <div className="join"><input className="input join-item" placeholder="Search" /><button className="btn btn-primary join-item">Go</button></div>;
     case "mask":
-      return <div className="demo-row"><Portrait label="D" /><div className="mask mask-squircle catalog-mask">S</div><div className="mask mask-hexagon catalog-mask">H</div><div className="mask mask-star-2 catalog-mask">★</div></div>;
+      return <div className="demo-row"><Portrait label="D" /><div className="mask mask-squircle catalog-mask">S</div><div className="mask mask-hexagon catalog-mask">H</div><div className="mask mask-star-2 catalog-mask"><Sparkles aria-hidden="true" /></div></div>;
     case "stack":
       return <div className="stack"><div className="card catalog-stack-card">Front</div><div className="card catalog-stack-card">Middle</div><div className="card catalog-stack-card">Back</div></div>;
     case "browser-mockup":
